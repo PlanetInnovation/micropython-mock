@@ -1,0 +1,6 @@
+{
+    "urls": [
+        ["micropython_mock.py", "github:planetinnovation/micropython-mock/micropython_mock.py"]
+    ],
+    "version": "1.0.0"
+}
