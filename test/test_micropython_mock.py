@@ -71,6 +71,34 @@ class TestMock(unittest.TestCase):
         self.assertEqual(mock.send(), 4)
         self.assertEqual(mock.send(), 5)
 
+    def test_called(self):
+        mock = Mock()
+
+        self.assertFalse(mock.called)
+
+        mock()
+        self.assertTrue(mock.called)
+
+        mock.some_method()
+        self.assertTrue(mock.some_method.called)
+
+    def test_call_count(self):
+        mock = Mock()
+
+        self.assertEqual(mock.call_count, 0)
+
+        mock()
+        self.assertEqual(mock.call_count, 1)
+
+        mock()
+        self.assertEqual(mock.call_count, 2)
+
+        mock.some_method("arg1", kwarg="value")
+        self.assertEqual(mock.some_method.call_count, 1)
+
+        mock.another_method()
+        self.assertEqual(mock.another_method.call_count, 1)
+
 
 if __name__ == "__main__":
     unittest.main()
