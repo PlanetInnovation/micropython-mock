@@ -45,6 +45,20 @@ class Mock:
         for key, value in kwargs.items():
             self._dict[key] = value
 
+    @property
+    def called(self) -> bool:
+        """
+        Whether the mock has been called.
+        """
+        return len(self.mock_calls) > 0
+
+    @property
+    def call_count(self) -> int:
+        """
+        The number of times the mock has been called.
+        """
+        return len(self.mock_calls)
+
     def assert_called_with(self, *args, **kwargs) -> None:
         """
         Assert the last call was called with the given arguments and keyword arguments.
