@@ -46,6 +46,24 @@ For more usage examples, see:
 - [examples/example.py](examples/example.py)
 - [test/test_micropython_mock.py](test/test_micropython_mock.py)
 
+## Running Tests
+
+Tests run in a MicroPython environment and require Docker.
+
+Execute the test suite using:
+
+```bash
+make tests
+```
+
+This automatically runs tests in a Docker container with the MicroPython Unix port and unittest support.
+
+For other available commands, run:
+
+```bash
+make help
+```
+
 ## License
 
 MIT License - Copyright (c) 2025, Planet Innovation
